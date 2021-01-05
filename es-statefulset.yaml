@@ -68,13 +68,13 @@ spec:
     spec:
       serviceAccountName: elasticsearch-logging
       containers:
-      - image: quay.io/fluentd_elasticsearch/elasticsearch:v7.2.0
+      - image: registry.cn-hangzhou.aliyuncs.com/hknaruto/fluentd_elasticsearch-elasticsearch-arm64:v7.2.0
         name: elasticsearch-logging
         imagePullPolicy: Always
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
-            cpu: 1000m
+            cpu: 4000m
           requests:
             cpu: 100m
         ports:
