@@ -68,7 +68,7 @@ spec:
     spec:
       serviceAccountName: elasticsearch-logging
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/hknaruto/fluentd_elasticsearch-elasticsearch-arm64:v7.2.0
+      - image: registry.cn-hangzhou.aliyuncs.com/hknaruto/fluentd_elasticsearch-elasticsearch-arm64:v7.4.3
         name: elasticsearch-logging
         imagePullPolicy: Always
         resources:

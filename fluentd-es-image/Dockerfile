@@ -77,7 +77,7 @@ RUN echo "deb https://mirrors.huaweicloud.com/debian/ buster main contrib non-fr
 # Expose prometheus metrics.
 EXPOSE 80
 
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+ENV LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libjemalloc.so.2
 
 # Start Fluentd to pick up our config that watches Docker container logs.
 CMD ["/entrypoint.sh"]

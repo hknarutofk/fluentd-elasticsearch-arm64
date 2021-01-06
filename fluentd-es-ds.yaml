@@ -71,7 +71,7 @@ spec:
       serviceAccountName: fluentd-es
       containers:
       - name: fluentd-es
-        image: registry.cn-hangzhou.aliyuncs.com/hknaruto/fluentd_elasticsearch-fluentd-arm64:v2.7.0
+        image: registry.cn-hangzhou.aliyuncs.com/hknaruto/fluentd_elasticsearch-fluentd-arm64:v3.0.2
         env:
         - name: FLUENTD_ARGS
           value: --no-supervisor -q
