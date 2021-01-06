@@ -15,10 +15,11 @@
 .PHONY:	build push
 
 # PREFIX = quay.io/fluentd_elasticsearch
-PREFIX = registry.cn-hangzhou.aliyuncs.com/hknaruto
 # IMAGE = elasticsearch
+PREFIX = registry.cn-hangzhou.aliyuncs.com/hknaruto
 IMAGE = fluentd_elasticsearch-elasticsearch-arm64
-TAG = v7.2.0
+
+TAG = v7.4.3
 
 build:
 	docker build --tag ${PREFIX}/${IMAGE}:${TAG} .

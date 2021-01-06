@@ -12,16 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# FROM golang:1.12.0 AS builder
-FROM golang:1.15.0-alpine AS builder
-ENV GOPROXY https://goproxy.io
-ENV GO111MODULE on
+FROM golang:1.15.5 AS builder
+ENV  GOPROXY https://goproxy.io
+ENV  GO111MODULE on
 COPY elasticsearch_logging_discovery.go go.mod go.sum /
 RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go build -a -ldflags "-w" -o /elasticsearch_logging_discovery /elasticsearch_logging_discovery.go
 
 
-# FROM docker.elastic.co/elasticsearch/elasticsearch-oss:7.2.0
-FROM gagara/elasticsearch-oss-arm64:7.3.2
+FROM docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.1
 
 VOLUME ["/data"]
 EXPOSE 9200 9300

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Copyright 2017 The Kubernetes Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,19 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.PHONY:	build push
+# These steps must be executed once the host /var and /lib volumes have
+# been mounted, and therefore cannot be done in the docker build stage.
 
-# PREFIX = quay.io/fluentd_elasticsearch
-# IMAGE = fluentd
-PREFIX = registry.cn-hangzhou.aliyuncs.com/hknaruto
-IMAGE = fluentd_elasticsearch-fluentd-arm64
+# For systems without journald
+mkdir -p /var/log/journal
 
-TAG = v3.0.2
-
-build:
-	docker build --tag ${PREFIX}/${IMAGE}:${TAG} .
-	docker build --tag ${PREFIX}/${IMAGE}:latest .
-
-push:
-	docker push ${PREFIX}/${IMAGE}:${TAG}
-	docker push ${PREFIX}/${IMAGE}:latest
+# Use exec to get the signal
+# A non-quoted string and add the comment to prevent shellcheck failures on this line.
+# See https://github.com/koalaman/shellcheck/wiki/SC2086
+# shellcheck disable=SC2086
+exec /usr/local/bundle/bin/fluentd $FLUENTD_ARGS
