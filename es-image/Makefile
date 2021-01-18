@@ -19,7 +19,7 @@
 PREFIX = registry.cn-hangzhou.aliyuncs.com/hknaruto
 IMAGE = fluentd_elasticsearch-elasticsearch-arm64
 
-TAG = v7.4.3
+TAG = v7.10.2
 
 build:
 	docker build --tag ${PREFIX}/${IMAGE}:${TAG} .

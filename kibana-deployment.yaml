@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: kibana-logging
-        image: registry.cn-hangzhou.aliyuncs.com/hknaruto/gagara-kibana-oss-arm64:7.3.2
+        image: registry.cn-hangzhou.aliyuncs.com/hknaruto/kibana-oss-arm64:7.10.2
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
