@@ -89,8 +89,8 @@ spec:
           readOnly: true
         - name: config-volume
           mountPath: /etc/fluent/config.d
-        - name: datadockercontainers
-          mountPath: /data/docker/containers
+        # - name: datadockercontainers
+        #  mountPath: /data/docker/containers
       terminationGracePeriodSeconds: 30
       volumes:
       - name: varlog
@@ -102,6 +102,6 @@ spec:
       - name: config-volume
         configMap:
           name: fluentd-es-config-v0.2.0
-      - name: datadockercontainers
-        hostPath: 
-          path: /data/docker/containers
+      # - name: datadockercontainers
+      #  hostPath: 
+      #    path: /data/docker/containers
